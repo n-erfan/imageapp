@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Gallery</title>
+</head>
+<body style="background-color: green;">
+    <h1>Image Gallery</h1>
+    <ul>
+        {% for filename in image_files %}
+            <li><a href="{{ url_for('image', filename=filename) }}">{{ filename }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('upload') }}">Upload Image</a>
+</body>
+</html>

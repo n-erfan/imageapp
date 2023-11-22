@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Details</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Details</h1>
+    <table>
+        <tr>
+            <th>Information</th>
+            <th>Value</th>
+        </tr>
+        {% for key, value in image_metadata.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <a href="{{ url_for('download', filename=filename) }}">Download Image</a>
+    <br>
+    <img src={{gcs_url}} alt="{{ filename }}">
+</body>
+</html>
+
